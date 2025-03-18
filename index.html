@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colégio São Francisco - CSF</title>
+    <title>Csf0.1</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,46 +15,34 @@
             flex-direction: column;
             align-items: center;
         }
-        .container {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-        }
         .sidebar {
-            width: 60px;
+            width: 100%;
             background-color: #002366;
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
+            justify-content: center;
+            padding: 10px 0;
         }
         .sidebar button {
             background: none;
             border: none;
             cursor: pointer;
-            margin: 10px 0;
+            margin: 0 10px;
         }
         .sidebar button img {
             width: 40px;
             height: 40px;
         }
-        .content {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
         .info-section {
             display: none;
             background-color: white;
             color: black;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
-            width: 60%;
+            width: 90%;
             position: absolute;
-            left: 80px;
-            top: 20px;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
         }
         .close-btn {
@@ -65,23 +53,15 @@
             cursor: pointer;
             float: right;
         }
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                flex-direction: row;
-                justify-content: center;
-            }
-            .content {
-                align-items: center;
-            }
-            .info-section {
-                width: 90%;
-                left: 5%;
-                top: 80px;
-            }
+        .noticia {
+            background-color: #abbbd4;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .noticia img {
+            width: 100%;
+            border-radius: 10px;
         }
     </style>
     <script>
@@ -111,78 +91,75 @@
             <img src="https://media.discordapp.net/attachments/873635645212491857/1351638520296505394/download.png?ex=67db1af7&is=67d9c977&hm=c92f228fd775d79ee9c091f2880e6a183244600d274bc9a076ed8ec7cc13580c&=&format=webp&quality=lossless" alt="Notícias">
         </button>
     </div>
-    <div class="container">
-        <div class="content">
-            <div id="trabalhos" class="info-section">
-                <button class="close-btn" onclick="closeSection('trabalhos')">X</button>
-                <h2>Trabalhos Pendentes</h2>
-                <ul>
-                    <li><strong>Quarta 19/03:</strong> Prova de Sociologia</li>
-                    <li><strong>Quinta 20/03:</strong> Atividade prática de Artes</li>
-                </ul>
-            </div>
-            <div id="provas" class="info-section">
-                <button class="close-btn" onclick="closeSection('provas')">X</button>
-                <h2>Assuntos das Provas da Semana</h2>
-                <h3>Geografia</h3>
-                <p><strong>Prova Padrão:</strong></p>
-                <ul>
-                    <li>Livro 9, capítulo 20, Separatismo na Europa e na América, páginas 306-313</li>
-                    <li>Livro 9, capítulo 21, Separatismos, páginas 327-333</li>
-                </ul>
-                <hr>
-                <h3>História</h3>
-                <p><strong>Prova Padrão:</strong></p>
-                <ul>
-                    <li>Livro 9, capítulo 20, Iluminismo e seus grandes nomes, páginas 98-106</li>
-                    <li>Livro 9, capítulo 21, Ideais medievais, páginas 114-126</li>
-                </ul>
-            </div>
-            <div id="atualidades" class="info-section">
-                <button class="close-btn" onclick="closeSection('atualidades')">X</button>
-                <h1>Texto de Atualidades da Semana</h1>
-                <h3>Projeto GEOAFRO aplica Geodireito para cartografar a cultura afro-brasileira</h3>
-                <p>O Projeto GEOAFRO lançou, neste mês, uma série de mapas que ilustram a trajetória dos 
-                    movimentos sociais e políticos afro-brasileiros desde 1971 até 2024, integrando a aplicação do 
-                    geodireito para representar a presença e a organização dessa cultura no território nacional. 
-                    Intitulada “Cartografia do Movimento Social & Geopolítico Afrobrasileiro”, a coleção apresenta uma 
-                    análise detalhada da mobilização do movimento negro no Brasil e acompanha o desenvolvimento 
-                    do Dia Nacional da Consciência Negra.
-                    <span style="background-color: yellow !important; color: black;">Composta por seis mapas temáticos, a cartografia recorre à linguagem visual, estatísticas e 
-                    conceitos de Geodireito para delinear as territorialidades afro-brasileiras ao longo das décadas. </span>
-                    Essa documentação acompanha eventos e fatos que marcaram a constituição e a evolução do 
-                    Movimento Negro Unificado, destacando as adesões municipais e estaduais ao feriado de Zumbi 
-                    dos Palmares e da Consciência Negra. Sob a coordenação do geógrafo Rafael Sanzio dos Anjos, 
-                    a iniciativa faz parte do Sistema de Informações Espaciais do Brasil Africano (SIEAFRO) e conta 
-                    com o suporte do Instituto Káwò, além de financiamento do CNPQ.
-                    Os mapas avançam na disponibilização pública de cartografias étnico-raciais em plataformas 
-                    digitais brasileiras ao oferecer uma perspectiva histórica da atuação e dos movimentos afrobrasileiros
-                    em várias regiões. Esse levantamento revela a concentração de eventos e iniciativas de 
-                    matriz africana em diversas cidades e regiões do país e ilustra a trajetória de um movimento que 
-                    começou formalmente com o Movimento Negro Unificado, nos anos 1970. Ela está presente até os 
-                    dias atuais, com conquistas legislativas como a Lei n. 14.759/23, que estabelece o Dia da 
-                    Consciência Negra como feriado nacional.
-                    A cartografia do GEOAFRO também contribui para o contexto educacional ao se tornar uma 
-                    ferramenta de apoio para o ensino da história afro-brasileira em escolas e universidades. 
-                    Educadores, pesquisadores, estudantes e o público em geral podem acessar os mapas temáticos 
-                    no Portal do Projeto GEOAFRO, obtendo novas perspectivas sobre a presença e a organização da 
-                    cultura afro-brasileira no Brasil e suas influências em políticas públicas.</p>
-            </div>
-            <div id="noticias" class="info-section">
-                <button class="close-btn" onclick="closeSection('noticias')">X</button>
-                <h2>Notícias da Semana</h2>
-                <div class="noticia">
-                    <h3>Trabalho sobre Centro de Massa</h3>
-                    <p>Na turma de exatas foi feito um trabalho sobre centro de massa!</p>
-                    <p><strong>Data:</strong> 17/03</p>
-                </div>
-                <div class="noticia">
-                    <h3>Piquenique Temático na Aula de Química</h3>
-                    <p>Os alunos fizeram um piquenique temático!</p>
-                    <p><strong>Data:</strong> 18/03</p>
-                    <img src="https://media.discordapp.net/attachments/873635645212491857/1351636526223593604/image.png?ex=67db191c&is=67d9c79c&hm=5c676b788a3d4d6f6576dc0f42ca874b46c5d410fc9eacdb8b62f7129a6836e9&=&format=webp&quality=lossless" alt="Piquenique Temático">
-                </div>
-            </div>
+    <div id="trabalhos" class="info-section">
+        <button class="close-btn" onclick="closeSection('trabalhos')">X</button>
+        <h2>Trabalhos Pendentes</h2>
+        <ul>
+            <li><strong>Quarta 19/03:</strong> Prova de Sociologia</li>
+            <li><strong>Quinta 20/03:</strong> Atividade prática de Artes</li>
+        </ul>
+    </div>
+    <div id="provas" class="info-section">
+        <button class="close-btn" onclick="closeSection('provas')">X</button>
+        <h2>Assuntos das Provas da Semana</h2>
+        <h3>Geografia</h3>
+        <p><strong>Prova Padrão:</strong></p>
+        <ul>
+            <li>Livro 9, capítulo 20, Separatismo na Europa e na América, páginas 306-313</li>
+            <li>Livro 9, capítulo 21, Separatismos, páginas 327-333</li>
+        </ul>
+        <hr>
+        <h3>História</h3>
+        <p><strong>Prova Padrão:</strong></p>
+        <ul>
+            <li>Livro 9, capítulo 20, Iluminismo e seus grandes nomes, páginas 98-106</li>
+            <li>Livro 9, capítulo 21, Ideais medievais, páginas 114-126</li>
+        </ul>
+    </div>
+    <div id="atualidades" class="info-section">
+        <button class="close-btn" onclick="closeSection('atualidades')">X</button>
+        <h1>Texto de Atualidades da Semana</h1>
+        <h3>Projeto GEOAFRO aplica Geodireito para cartografar a cultura afro-brasileira</h3>
+        <p>O Projeto GEOAFRO lançou, neste mês, uma série de mapas que ilustram a trajetória dos 
+            movimentos sociais e políticos afro-brasileiros desde 1971 até 2024, integrando a aplicação do 
+            geodireito para representar a presença e a organização dessa cultura no território nacional. 
+            Intitulada “Cartografia do Movimento Social & Geopolítico Afrobrasileiro”, a coleção apresenta uma 
+            análise detalhada da mobilização do movimento negro no Brasil e acompanha o desenvolvimento 
+            do Dia Nacional da Consciência Negra.
+            <span style="background-color: yellow !important; color: black;">Composta por seis mapas temáticos, a cartografia recorre à linguagem visual, estatísticas e 
+            conceitos de Geodireito para delinear as territorialidades afro-brasileiras ao longo das décadas. </span>
+            Essa documentação acompanha eventos e fatos que marcaram a constituição e a evolução do 
+            Movimento Negro Unificado, destacando as adesões municipais e estaduais ao feriado de Zumbi 
+            dos Palmares e da Consciência Negra. Sob a coordenação do geógrafo Rafael Sanzio dos Anjos, 
+            a iniciativa faz parte do Sistema de Informações Espaciais do Brasil Africano (SIEAFRO) e conta 
+            com o suporte do Instituto Káwò, além de financiamento do CNPQ.
+            Os mapas avançam na disponibilização pública de cartografias étnico-raciais em plataformas 
+            digitais brasileiras ao oferecer uma perspectiva histórica da atuação e dos movimentos afrobrasileiros
+            em várias regiões. Esse levantamento revela a concentração de eventos e iniciativas de 
+            matriz africana em diversas cidades e regiões do país e ilustra a trajetória de um movimento que 
+            começou formalmente com o Movimento Negro Unificado, nos anos 1970. Ela está presente até os 
+            dias atuais, com conquistas legislativas como a Lei n. 14.759/23, que estabelece o Dia da 
+            Consciência Negra como feriado nacional.
+            A cartografia do GEOAFRO também contribui para o contexto educacional ao se tornar uma 
+            ferramenta de apoio para o ensino da história afro-brasileira em escolas e universidades. 
+            Educadores, pesquisadores, estudantes e o público em geral podem acessar os mapas temáticos 
+            no Portal do Projeto GEOAFRO, obtendo novas perspectivas sobre a presença e a organização da 
+            cultura afro-brasileira no Brasil e suas influências em políticas públicas.</p>
+    </div>
+    <div id="noticias" class="info-section">
+        <button class="close-btn" onclick="closeSection('noticias')">X</button>
+        <h2>Notícias da Semana</h2>
+        <div class="noticia">
+            <h3>Trabalho sobre Centro de Massa</h3>
+            <p>Na turma de exatas foi feito um trabalho sobre centro de massa!</p>
+            <p><strong>Data:</strong> 17/03</p>
+        </div>
+        <hr>
+        <div class="noticia">
+            <h3>Piquenique Temático na Aula de Química</h3>
+            <p>Os alunos fizeram um piquenique temático!</p>
+            <p><strong>Data:</strong> 18/03</p>
+            <img src="https://media.discordapp.net/attachments/873635645212491857/1351636526223593604/image.png?ex=67db191c&is=67d9c79c&hm=5c676b788a3d4d6f6576dc0f42ca874b46c5d410fc9eacdb8b62f7129a6836e9&=&format=webp&quality=lossless" alt="Piquenique Temático">
         </div>
     </div>
 </body>
