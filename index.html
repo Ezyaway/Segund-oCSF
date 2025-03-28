@@ -74,6 +74,10 @@
             width: 100%;
             border-radius: 10px;
         }
+        #newsFilter {
+            color: black;
+            background-color: #e8ae5d;
+        }
         .aluno {
             display: flex;
             align-items: center;
@@ -99,6 +103,19 @@
         }
         function closeSection(id) {
             document.getElementById(id).style.display = 'none';
+        }
+        function filterNews() {
+            let selectedDate = document.getElementById("newsFilter").value;
+            let newsItems = document.querySelectorAll(".noticia");
+            
+            newsItems.forEach(item => {
+                let newsDate = item.getAttribute("data-date");
+                if (selectedDate === "" || newsDate === selectedDate) {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+            });
         }
     </script>
 </head>
@@ -205,20 +222,22 @@
     <div id="noticias" class="info-section">
         <button class="close-btn" onclick="closeSection('noticias')">X</button>
         <h2>Notícias da Semana</h2>
-        <div class="noticia">
+        <label for="newsFilter">Filtrar:</label>
+        <input type="date" id="newsFilter" onchange="filterNews()">
+        <div class="noticia" data-date="2025-03-17">
             <h3>Início das votações de lider e vice-lider da sala.</h3>
             <p>Durante as aulas de Ed.Física e históra, a instrutora Rita nos apresentou ao "sistema de liderança" da sala. <a href="#" onclick="toggleSection('alunos')">Eri Costa</a> e <a href="#" onclick="toggleSection('alunos')">Giulia Sampaio</a> se elegeram!!</p>
             <p><strong>Data:</strong> 17/03</p>
         </div>
         <hr>
-        <div class="noticia">
+        <div class="noticia" data-date="2025-03-18">
             <h3>Piquenique Temático na Aula de Química</h3>
             <p>Nós alunos, fizemos um piquenique temático do atual assunto de química! Instruido pela professora (esqueci o nome dela).</p>
             <p><strong>Data:</strong> 18/03</p>
-            <img src="https://media.discordapp.net/attachments/873635645212491857/1351636526223593604/image.png?ex=67db191c&is=67d9c79c&hm=5c676b788a3d4d6f6576dc0f42ca874b46c5d410fc9eacdb8b62f7129a6836e9&=&format=webp&quality=lossless" alt="Piquenique Temático">
+            <img src="pqnq.png" alt="Piquenique Temático">
         </div>
         <hr>
-        <div class="noticia">
+        <div class="noticia" data-date="2025-03-17">
             <h3>Trabalho sobre Centro de Massa</h3>
             <p>Na turma de exatas foi feito um trabalho sobre centro de massa, ele consistia na criação de um "João Bobo" utilizando uma bexiga e uma bolinha de gude! O trabalho foi instruido pelo professor anderson.</p>
             <p><strong>Data:</strong> 17/03</p>
