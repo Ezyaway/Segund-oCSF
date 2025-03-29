@@ -124,17 +124,56 @@
             height: 50px;
             border-radius: 50%;
         }
+        @keyframes fadeSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeSlideOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+        .fade-in {
+            animation: fadeSlideIn 0.5s ease-out forwards;
+        }
+        .fade-out {
+            animation: fadeSlideOut 0.5s ease-out forwards;
+        }
     </style>
     <script>
         function toggleSection(id) {
             document.querySelectorAll('.info-section').forEach(section => {
-                section.style.display = 'none';
+                if (section.id !== id && section.classList.contains("fade-in")) {
+                    section.classList.remove("fade-in");
+                    section.classList.add("fade-out");
+                    setTimeout(() => section.style.display = "none", 500);
+                }
             });
-            document.getElementById(id).style.display = 'block';
+            let section = document.getElementById(id);
+            section.style.display = "block";
+            section.classList.remove("fade-out");
+            section.classList.add("fade-in");
         }
         function closeSection(id) {
-            document.getElementById(id).style.display = 'none';
+            let section = document.getElementById(id);
+            section.classList.remove("fade-in");
+            section.classList.add("fade-out");
+            setTimeout(() => {
+                section.style.display = "none";
+            }, 500);
         }
+
         function filterNews() {
             let selectedDate = document.getElementById("newsFilter").value;
             let newsItems = document.querySelectorAll(".noticia");
